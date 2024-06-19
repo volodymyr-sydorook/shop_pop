@@ -1,0 +1,15 @@
+{% extends 'shop/base.html' %}
+{% block title %}Дитячі сукні{% endblock %}
+{% block content %}
+<h2>Дитячі сукні</h2>
+<ul>
+    {% for product in products %}
+    <li>
+        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+        <h3>{{ product.name }}</h3>
+        <p>{{ product.price }} грн</p>
+        <button type="button">Додати в кошик</button>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

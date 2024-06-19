@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %} <!-- Додаємо цей рядок для завантаження статичних файлів -->
+    <link rel="stylesheet" href="{% static 'shop/css/styles.css' %}">
+    <title>{% block title %}Shop{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Головна</a></li>
+                <li><a href="{% url 'catalog' %}">Каталог</a></li>
+                <li><a href="{% url 'cart' %}">Кошик</a></li>
+                <li><a href="{% url 'login' %}">Вхід</a></li>
+                <li><a href="{% url 'register' %}">Реєстрація</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2023 Shop. Всі права захищені.</p>
+    </footer>
+</body>
+</html>
