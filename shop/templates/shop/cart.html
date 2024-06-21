@@ -1,7 +1,18 @@
 {% extends 'shop/base.html' %}
+{% load static %}
+
 {% block title %}Кошик{% endblock %}
+
 {% block content %}
-<h2>Кошик</h2>
-<p>Ваш кошик наразі пустий.</p>
-<button type="button">Оплатити</button>
+<h2>Ваш кошик</h2>
+<ul>
+    {% for cart_product in cart_products %}
+        <li>
+            <h3>{{ cart_product.product.name }}</h3>
+            <p>Кількість: {{ cart_product.quantity }}</p>
+            <p>Ціна: {{ cart_product.product.price }} грн</p>
+        </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'checkout' %}">Оформити замовлення</a>
 {% endblock %}

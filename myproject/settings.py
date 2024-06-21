@@ -18,7 +18,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 LOGIN_REDIRECT_URL = '/'  # Редирект на головну сторінку після входу
 LOGOUT_REDIRECT_URL = '/login/'  # Редирект на сторінку входу після виходу
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
@@ -30,6 +29,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+import os
+
+# Додаємо налаштування для медіафайлів
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Application definition
 
@@ -73,7 +77,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
@@ -102,7 +105,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
@@ -114,7 +116,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
@@ -122,10 +123,15 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # Optional: Define a directory for static files if you have any
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
+# STATICFILES_DIRS = [
+#     BASE_DIR / "static",
+# ]
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Видаліть або оновіть цей параметр, якщо каталог не існує
+STATICFILES_DIRS = [
+    # '/home/kali/PycharmProjects/help_django_shop/myproject/static',  # Відсутній каталог
+]

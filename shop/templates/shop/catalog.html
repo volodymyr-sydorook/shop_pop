@@ -1,11 +1,15 @@
 {% extends 'shop/base.html' %}
+{% load static %}
+
 {% block title %}Каталог{% endblock %}
+
 {% block content %}
-<h2>Каталог</h2>
+<h2>Каталог товарів</h2>
 <ul>
-    <li><a href="{% url 'womens_dresses' %}">Жіночі сукні</a></li>
-    <li><a href="{% url 'womens_embroidery' %}">Жіночі вишиванки</a></li>
-    <li><a href="{% url 'childrens_dresses' %}">Дитячі сукні</a></li>
-    <li><a href="{% url 'childrens_embroidery' %}">Дитячі вишиванки</a></li>
+    {% for category in categories %}
+        <li>
+            <a href="{% url 'category' category.id %}">{{ category.name }}</a>
+        </li>
+    {% endfor %}
 </ul>
 {% endblock %}
